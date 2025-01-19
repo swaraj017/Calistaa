@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const map = L.map('map').setView([19.9975, 73.7898], 13);
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+            L.marker([19.9975, 73.7898]).addTo(map)
+                .bindPopup("<b>Welcome Here..!</b>").openPopup();
+
+            L.circle([19.9975, 73.7898], { color: 'red', radius: 500 }).addTo(map).bindPopup("Where You'll be");
+
+            const captions = [
+                "New spot unlocked!", "The world is yours!", "Adventure begins here!",
+                "Your journey starts now!", "A new location, a new story!"
+            ];
+
+            function getRandomCaption() {
+                return captions[Math.floor(Math.random() * captions.length)];
+            }
+
+            map.on('click', e => {
+                L.popup().setLatLng(e.latlng)
+                    .setContent(getRandomCaption() + `<br>At: ${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}`)
+                    .openOn(map);
+            });
+        });
+    </script>
+</body>
+</html>

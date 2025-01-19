@@ -1,0 +1,110 @@
+<% layout("/layuots/boilerplate.ejs") %>
+
+<link rel="stylesheet" href="/css/mobileindex.css">
+ 
+<body>
+    <div class="indexcontainer"><!--this is container where images banner slide show  -->
+        
+        <div class="hero-container">
+            <div class="slideshow-container">
+                <div class="slides" id="slides"></div>
+            </div>
+            <div class="hero-text">
+               <h1>Explore The World</h1>
+            <p>Discover amazing places and create unforgettable memories</p>
+            </div>
+        </div>
+        
+      
+        <hr>
+        <h3 style="color: aliceblue;">Discover Your Next Destination</h3>
+        <br>
+        <div class="row">
+            <% for (let listing of allListings) { %>
+                <div class="col">
+                    <div class="collection-card">
+                     
+                        <a style="text-decoration: none;" href="/listing/<%= listing._id %>">
+                            <img src="<%= listing.image.url %>" alt="<%= listing.title %>" class="card-img-top">
+                            
+                           
+                            <div class="title" style="font-size: 18px;" >
+                                <%= listing.title %>
+                            </div>
+                            <div class="details">
+                                <small style="font-size: 15px;"><%= listing.location %>, <%= listing.country %></small>
+                            </div>
+                            
+                          
+                            <div class="price">
+                                <%= listing.price %>/night &nbsp; <i class="gst" style="color: black; font-size:medium; display: none;">+18%GST</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        <br><hr>
+        <div class="image-container"></div>  <!-- this is container where 360 panaroma image show -->
+       
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"></script>
+    <script src="/3dPanorama/js/panolens.min.js"></script>
+    <script src="public/3dPanorama/js/main.js"></script>
+    <script>
+         
+        const slidesContainer = document.getElementById('slides');
+        
+        const images = [];
+        for (let i = 1; i <= 20; i++) {
+            images.push(`images/${i}.jpg`);
+        }
+
+        images.forEach(imageSrc => {
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = `Image ${imageSrc.split('./').pop().split('.')[0]}`;
+            slidesContainer.appendChild(img);
+        });
+
+        const totalImages = images.length;
+        let offset = 0;
+        let imageWidth = 310;
+        let totalWidth = imageWidth * totalImages;
+
+        function updateSlidePosition() {
+            slidesContainer.style.transform = `translateX(-${offset}px)`;
+        }
+
+        function moveToNextImage() {
+            offset += 2; 
+            if (offset >= totalWidth) {
+                offset = 0;
+            }
+            updateSlidePosition();
+        }
+
+        setInterval(moveToNextImage, 18);
+
+ 
+ 
+const taxSwitch = document.getElementById("flexSwitchCheckDefault");
+const gstElements = document.querySelectorAll(".gst");
+
+ 
+taxSwitch.addEventListener("change", function() {
+   
+    gstElements.forEach(function(gstElement) {
+        if (gstElement.style.display === "none" || gstElement.style.display === "") {
+            gstElement.style.display = "inline";  
+        } else {
+            gstElement.style.display = "none";  
+        }
+    });
+});
+
+
+
+    </script>
+</body>

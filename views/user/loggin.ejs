@@ -1,0 +1,91 @@
+<% layout("/layuots/boilerplate.ejs") %>
+ 
+
+<style>
+     
+
+    .container {
+        max-width: 400px;
+       
+        padding: 20px;
+        background-color: white;
+        
+        border-radius: 8px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    input:focus {
+        border-color: #004e92;
+    }
+
+    .logbtn{
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        background-image: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background-position 0.3s ease-in-out;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .logbtn:hover {
+        background-position: right center;
+    }
+
+    .message {
+        color: red;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    p {
+        padding-top: 20px;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    p a {
+        color: #004e92;
+        text-decoration: none;
+    }
+
+    p a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <% if (message) { %>
+            <h3 class="message"><%= message %></h3>
+        <% } %>
+        <h2>Log-In</h2>
+        <form action="/login" method="POST">
+            <input type="text" name="username" id="username" placeholder="Enter your username" required class="needs-validation" novalidate><br>
+            <input type="password" name="password" placeholder="Enter your password" class="form-control" required><br>
+            <button class="logbtn">Log-In</button>
+        </form>
+        <p>Create new account? <a href="/signup">Sign Up</a></p>
+    </div>
+</body>

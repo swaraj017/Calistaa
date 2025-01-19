@@ -1,0 +1,91 @@
+ 
+/* Responsive Design for Mobile Devices */
+
+/* High-Resolution Mobile (devices like iPhone, Samsung Galaxy, etc.) */
+@media only screen and (max-width: 768px) {
+    .hero-container {
+        height: 250px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.5em;
+    }
+
+    .hero-text p {
+        font-size: 1em;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .col {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .collection-card {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .collection-card .title {
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    .collection-card .details {
+        font-size: 0.85em;
+    }
+
+    .collection-card .price {
+        font-size: 1em;
+    }
+
+    .image-container {
+        height: 300px;
+    }
+}
+
+/* Higher Resolutions for Tablets and Larger Phones (iPad, etc.) */
+@media only screen and (max-width: 1024px) {
+    .hero-container {
+        height: 350px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8em;
+    }
+
+    .hero-text p {
+        font-size: 1.1em;
+    }
+
+    .row {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .col {
+        flex: 1 1 calc(33.333% - 20px);
+    }
+
+    .collection-card {
+        width: 95%;
+        margin: 20px 0;
+    }
+
+    .collection-card .title {
+        font-size: 1.1em;
+    }
+
+    .collection-card .details {
+        font-size: 0.9em;
+    }
+
+    .collection-card .price {
+        font-size: 1.1em;
+    }
+}

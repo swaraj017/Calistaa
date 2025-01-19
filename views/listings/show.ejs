@@ -1,0 +1,315 @@
+<% layout("/layuots/boilerplate.ejs") %>
+ 
+<style>
+  :root {
+    --primary-color: #0ea5e9;
+    --primary-dark: #0284c7;
+    --secondary-color: #f59e0b;
+    --text-color: #334155;
+    --light-gray: #f8fafc;
+    --border-color: #e2e8f0;
+  }
+
+  .info {
+    max-width: 1300px;
+    justify-content: center;
+  }
+
+  .price-card {
+    width: 250px;
+    height: 180px;
+    background: white;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .price span {
+    font-size: 1rem;
+    color: #64748b;
+    font-weight: normal;
+  }
+
+  .btn {
+    width: 80%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  .btn:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .listing-content {
+    box-shadow: 0 4px 8px rgba(51, 65, 85, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .listing-details {
+    width: 700px;
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #64748b;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background-color: #f8fafc;
+    border-radius: 0.75rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+    color: #475569;
+    margin: 1rem 0;
+  }
+
+  .amenities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .amenity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    font-size: 1.125rem;
+  }
+
+  .review-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .review-card {
+    padding: 1rem;
+    background: #f8fafc;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+  }
+
+  .review-comment {
+    font-size: 1.125rem;
+    margin: 0.5rem 0;
+  }
+
+  .rating {
+    font-size: 1.25rem;
+    color: #ffd700;
+  }
+
+  h3 {
+    font-size: 2rem;
+    color: papayawhip;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+  }
+
+  textarea {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  button[type="submit"] {
+    font-size: 1.125rem;
+    padding: 1rem;
+  }
+
+  #payment-form {
+    all: unset;
+    display: block;
+  }
+</style>
+
+<body>
+  <br>
+  <h3 style="color:papayawhip">Listing Details :</h3>
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <div>
+      <form method="POST" action="/listing/<%= alisting._id %>?_method=DELETE">
+        <ul>
+          <p style="font-size: larger;">Owner: <i>
+              <%= fullName %>
+            </i> / <b>🌍 <%= alisting.title %></b></p>
+
+          <div style="display: flex; gap: 35px;">
+            <img class="showimage" src="<%= alisting.image.url %>" alt="">
+            <div style="display: flex; flex-direction: column; gap: 10px; padding: 5px;">
+              <div><img style="width: 220px; height: 140px; border-radius: 10px;" src="<%= alisting.image.url %>"
+                  alt=""></div>
+              <div><img style="width: 220px; height: 140px;border-radius: 10px;" src="<%= alisting.image.url %>"
+                  alt=""></div>
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="listing-content">
+              <div class="main-content">
+                <div class="listing-details">
+                  <div class="location">
+                    <span>📍</span>
+                    <span>
+                      <%= alisting.location ? alisting.location : 'Location not available' %>,
+                        <%= alisting.country ? alisting.country : 'Country not available' %>
+                    </span>
+                  </div>
+
+                  <div class="description">
+                    <%= alisting.description %>
+                  </div>
+
+                  <div class="amenities">
+                    <div class="amenity">
+                      <span>🛏️</span>
+                      <span>2 Bedrooms</span>
+                    </div>
+                    <div class="amenity">
+                      <span>🚿</span>
+                      <span>2 Bathrooms</span>
+                    </div>
+                    <div class="amenity">
+                      <span>🚗</span>
+                      <span>Free Parking</span>
+                    </div>
+                    <div class="amenity">
+                      <span>🏊‍♂️</span>
+                      <span>Swimming Pool</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% if (logedId && logedId==ownerid) { %>
+              <div style="display: flex; justify-content: center; gap: 0.75rem; margin-top: 1rem;">
+                <div class="optionss">
+                  <a href="/listing/<%= alisting._id %>/edit">Edit this Listing</a>
+                  <button>Delete this listing</button>
+                </div>
+              </div>
+              <% } %>
+        </ul>
+      </form>
+    </div>
+
+    <div class="side-content" style="margin-left: 90px;">
+      <form id="payment-form">
+        <div class="price-card">
+          <div class="price amount">
+            ₹<%= alisting.price ? alisting.price.toLocaleString("en-IN") : 'Price not available' %>
+            <span>per night</span>
+          </div>
+          <button class="btn" type="button" onclick="payNow(event)">Book Now</button>
+          <div style="text-align: center; margin-top: 0.75rem; font-size: 0.75rem; color: #64748b;">
+            No charges until you book
+          </div>
+        </div>
+      </form>
+      
+      <div class="Review">
+        <h2 style="color: #f8fafc;">Leave a Review</h2>
+        <form action="/listing/<%= alisting._id %>/reviews" method="post" style="text-align: center;">
+          <h4>Rating:</h4>
+          <div class="stars" style="display:flex; justify-content: center;">
+            <input type="radio" id="star5" name="review[rating]" value="5" />
+            <label for="star5" class="star">★</label>
+            <input type="radio" id="star4" name="review[rating]" value="4" />
+            <label for="star4" class="star">★</label>
+            <input type="radio" id="star3" name="review[rating]" value="3" />
+            <label for="star3" class="star">★</label>
+            <input type="radio" id="star2" name="review[rating]" value="2" />
+            <label for="star2" class="star">★</label>
+            <input type="radio" id="star1" name="review[rating]" value="1" />
+            <label for="star1" class="star">★</label>
+          </div>
+          <br>
+          <h4>Comment:</h4>
+          <textarea name="review[comment]" cols="30" rows="10" id="comment"
+            placeholder="Write your review here..."></textarea>
+          <br><br>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+    </div>
+    <hr>
+  </div>
+  <h3>All Reviews</h3>
+  <ul class="review-list">
+    <% for (review of alisting.reviews) { %>
+      <li class="review-card">
+        <div class="review-header">
+          <p class="user-name">ⵙ <%= review.author.username %>
+          </p>
+          <% if (review.author._id==logedId) { %>
+            <form style="margin: 0; padding: 0;" method="POST"
+              action="/listing/<%= alisting._id %>/reviews/<%= review._id %>?_method=DELETE">
+              <button class="delete-btn" type="submit">Delete</button>
+            </form>
+            <% } %>
+        </div>
+        <p class="review-comment">
+          <%= review.comment %>
+        </p>
+        <div class="rating">
+          <span class="stars">
+            <% for (let i=0; i < review.rating; i++) { %> ★ <% } %>
+          </span>
+        </div>
+      </li>
+      <% } %>
+  </ul>
+  <h3 style="color: aliceblue;">where u will be</h3>
+
+  </div>
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <%- include("../layuots/mapscript.ejs") %>
+  </div>
+</body>

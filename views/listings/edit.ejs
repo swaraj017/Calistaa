@@ -1,0 +1,62 @@
+<% layout("/layuots/boilerplate.ejs") %>
+ 
+
+<body>
+    <div class="container">
+        <h3>Edit your Listing</h3>
+        <form method="POST" action="/listing/<%= alisting._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="listingTitle" class="form-label">Title</label>
+                <input name="listing[title]" id="listingTitle" class="form-control" value="<%= alisting.title %>" type="text" required />
+                <div class="invalid-feedback">
+                    Please provide a title.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="listingDescription" class="form-label">Description</label>
+                <textarea name="listing[description]" id="listingDescription" class="form-control" required><%= alisting.description %></textarea>
+                <div class="invalid-feedback">
+                    Please provide a description.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="listingImage" class="form-label">Image URL</label>
+                <input name="listing[image]" id="listingImage" class="form-control" value="<%= alisting.image.url %>" type="file" required />
+
+                <div class="invalid-feedback">
+                    Please provide an image URL.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="listingPrice" class="form-label">Price</label>
+                <input name="listing[price]" id="listingPrice" class="form-control" value="<%= alisting.price %>" type="number" required />
+                <div class="invalid-feedback">
+                    Please provide a valid price.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="listingCountry" class="form-label">Country</label>
+                <input name="listing[country]" id="listingCountry" class="form-control" value="<%= alisting.country %>" type="text" required />
+                <div class="invalid-feedback">
+                    Please provide a country.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="listingLocation" class="form-label">Location</label>
+                <input name="listing[location]" id="listingLocation" class="form-control" value="<%= alisting.location %>" type="text" required />
+                <div class="invalid-feedback">
+                    Please provide a location.
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Edit</button>
+        </form>
+    </div>
+</body>
+
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mobilenavbar.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/listing" class="logo-container">
+                <img src="https://i.pinimg.com/originals/2e/cf/73/2ecf7364cd78b7222311518159a72179.jpg" alt="Logo">
+                <svg width="200" height="32">
+                    <text x="0" y="25" font-size="22" font-family="Arial" fill="#FFFFFF" class="Wander_Lust">Wander-Lust</text>
+                </svg>
+            </a>
+        </div>
+ 
+        <div class="links">
+            <a href="#">Stays</a>
+            <a href="#">Experiences</a>
+
+            <div class="search-container">
+                <input class="searchInput" type="text" name="" placeholder="Search" style="border-radius: 30px;">
+                <button class="searchButton" style="background-color:transparent;">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+            <label class="form-check-label" style="color: #919490; font-size: 20px;" for="flexSwitchCheckDefault">Display Taxes</label>
+        </div>
+
+        <div class="user-menu">
+            <b><a href="#" style="font-size: 20px;  padding-left: 1rem;" class="WanderLustname">Wander-Lust your home</a></b>
+
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn"><i class="fas fa-user profile-icon" id="profile-icon" style="color: #fff;"></i></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="/signup">Sign Up</a>
+                    <a href="/login">Login</a>
+                    <a href="http://localhost:3000/listing/new">Add New Listing</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="categories">
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/c5a4f6fc-c92c-4ae8-87dd-57f1ff1b89a6.jpg" alt="Luxe">
+            <span>Luxe</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/732edad8-3ae0-49a8-a451-29a8010dcc0c.jpg" alt="Cabins">
+            <span>Cabins</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/35919456-df89-4024-ad50-5fcb7a472df9.jpg" alt="Tiny homes">
+            <span>Tiny homes</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/8e507f16-4943-4be9-b707-59bd38d56309.jpg" alt="Islands">
+            <span>Islands</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/6ad4bd95-f086-437d-97e3-14d12155ddfe.jpg" alt="Countryside">
+            <span>Countryside</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/33dd714a-7b4a-4654-aaf0-f58ea887a688.jpg" alt="Historical homes">
+            <span>Historical homes</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/78ba8486-6ba6-4a43-a56d-f556189193da.jpg" alt="Mansions">
+            <span>Mansions</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/5ed8f7c7-2e1f-43a8-9a39-4edfc81a3325.jpg" alt="Bed & breakfasts">
+            <span>Bed & breakfasts</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/d7445031-62c4-46d0-91c3-4f29f9790f7a.jpg" alt="Earth homes">
+            <span>Earth homes</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/9a2ca4df-ee90-4063-b15d-0de7e4ce210a.jpg" alt="Off-the-grid">
+            <span>Off-the-grid</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/8b44f770-7156-4c7b-b4d3-d92549c8652f.jpg" alt="Arctic">
+            <span>Arctic</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/ed8b9e47-609b-44c2-9768-33e6a22eccb2.jpg" alt="Top cities">
+            <span>Top cities</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/248f85bf-e35e-4dc3-a9a1-e1dbff9a3db4.jpg" alt="Top of the world">
+            <span>Top of the world</span>
+        </div>
+        <div class="category">
+            <img src="https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg" alt="Trending">
+            <span>Trending</span>
+        </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn') && !event.target.matches('#profile-icon')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        document.querySelectorAll('.category').forEach(category => {
+            category.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px)';
+            });
+            category.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+
+</html>
