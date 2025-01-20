@@ -10,8 +10,9 @@
     }
   
     .logo-container {
+      padding-top: 0.5rem;
       width: 100%;
-      margin-left: 2rem;
+      margin-left: 3.5rem;
       justify-content: center;
     }
   
@@ -20,7 +21,7 @@
       height: 40px;
     }
     .Wander_Lust {
-      margin-left: 1rem;
+      margin-left: 2rem;
     }
     .user-menu {
       width: 100%;
@@ -34,36 +35,41 @@
     }
   
     .form-check {
-      font-size: 18px;
-      margin: 0 auto;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
+      display: none;
+       
     }
   
     .categories {
+      justify-content: center;
+      align-items: center;
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
       gap: 1rem;
-      padding: 1rem;
+      padding-left: 8rem;
+      height: 3rem;
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      scrollbar-width: thin;
       -ms-overflow-style: none;
-    }
+  }
   
-    .categories::-webkit-scrollbar {
-      display: none;
-    }
+  .categories::-webkit-scrollbar {
+      display: flex;
+  }
+  
+  .categories > * {
+      flex-shrink: 0;
+  }
+  
+   
   
     .category {
+      margin-top: 1rem;
       flex: 0 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0.5rem;
+      
     }
   
     .category img {

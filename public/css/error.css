@@ -1,0 +1,52 @@
+@media (max-width: 768px) {
+    .error-container {
+        margin-top: 6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        margin-left: 5rem;
+        width: 65%;
+    }
+    .categories {
+        display: none;
+    }
+
+    .image-section {
+        width: 60%;
+        margin-bottom: 15px;
+    }
+
+    .error-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .message-section {
+        width: 90%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .error-title {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .error-message {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .back-home {
+        font-size: 14px;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    footer {
+        margin-top: 12rem;
+    }
+}

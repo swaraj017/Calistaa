@@ -13,7 +13,10 @@
     position: relative;
     overflow: hidden;
 }
-
+.form-check-label
+{
+    margin-top: 0.3rem;
+}
 nav {
     display: flex;
     justify-content: space-between;
@@ -239,9 +242,12 @@ nav {
         }
 
         .categories {
+            height: 6rem;
+            justify-content: center;
+            align-items: center;
             display: flex;
             padding: 2rem 5%;
-            gap: 2rem;
+            gap: 1.5rem;
             background: rgba(255, 255, 255, 0.1);
             animation: fadeUpCards 1s ease-out 1s backwards;
             z-index: 0;
@@ -354,6 +360,7 @@ nav {
         }
 
         .form-check {
+             
             left: 300px;
         }
         .links {
@@ -375,6 +382,7 @@ nav {
         }
 
         .form-check {
+            
             margin-left: 3rem;
         }
 
@@ -618,5 +626,15 @@ nav {
             padding: 5px;
             margin-top: 15px;
             margin-right: 5px;
+        }
+        .f-info a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+        
+        .f-info a:hover {
+            color: #007BFF;
+            text-decoration: underline;
         }
         

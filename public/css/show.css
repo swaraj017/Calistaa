@@ -1,0 +1,221 @@
+@media only screen and (max-width: 768px) {
+    .mobile {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .twoimages div {
+        display: none;
+    }
+
+    .showcontainer {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 0 auto;
+    }
+
+    .showcontainer form {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .showimage {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin-right: 1rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .price-card {
+        width: 90%;
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .listing-content {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .stars {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.1rem;
+        margin-top: 10px;
+        background-color: #4ec0f5;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .review-list {
+        padding: 10px;
+    }
+
+    .review-card {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        background-color: #f9f9f9;
+    }
+
+    h3, h5 {
+        font-size: 1.3rem;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .side-content {
+        display: none;
+    }
+
+    .first_content {
+        display: block;
+    }
+
+    .description {
+        display: none;
+    }
+
+    .listing-details {
+        display: block;
+        width: 90%;
+        margin-left: 0rem;
+        margin-top: 1rem;
+        background-color: #ebe4e4;
+        border-radius: 8px;
+    }
+
+    .amenities {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .amenity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+    }
+
+    .amenity span {
+        margin-left: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .listing-details {
+        width: 95%;
+        padding: 0.5rem;
+        margin-left: 0rem;
+        margin-right: 2rem;
+    }
+
+    .rupay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:  #ff0000;
+        margin-left: 2rem;
+        margin-top: 1rem;
+        font-size: 1.35rem;
+        display: flex;
+    }
+
+    .showcontainer form {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .showimage {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin-right: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .price-card {
+        width: 90%;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .amenities {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .amenity {
+        font-size: 0.9rem;
+    }
+
+    .info {
+        margin-left: 0;
+    }
+
+    .mapheading {
+        margin-left: 8rem;
+    }
+}
+
+.btn {
+    background-color: #4ec0f5;
+    color: #000000;
+}
+
+.mobilepaymentbtn {
+    display: flex;
+    width: 50%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: var(--primary-color);
+    color: white;
+    margin-left: 1rem;
+}
+
+.price span {
+    font-size: large;
+    color: red;
+}
+
+@media only screen and (min-width: 768px) {
+    .mobilepaymentbtn {
+        display: none;
+    }
+
+    .rupay {
+        display: none;
+    }
+}
