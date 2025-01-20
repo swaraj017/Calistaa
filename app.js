@@ -1,5 +1,3 @@
- 
-
 const express = require('express');
 const Razorpay = require('razorpay');
 const bodyParser = require('body-parser');
@@ -18,7 +16,7 @@ const User = require('./models/user');
 const ExpressError = require('./utils/ExpressError');
 const flash = require('connect-flash');
 const dotenv = require('dotenv');
-
+const { isLoggedIn } = require("./middleware.js");
 if (process.env.NODE_ENV !== 'production') {
     dotenv.config();
 }
@@ -75,10 +73,17 @@ app.use(passport.session());
 const listingrouter = require('./routes/listing');
 const reviewsrouter = require('./routes/review');
 const userrouter = require('./routes/user');
-
+ 
 app.use('/listing', listingrouter);
 app.use('/listing/:id/reviews', reviewsrouter);
 app.use('/', userrouter);
+
+const listing = require("./models/listing")
+// Root route for homepage
+app.get('/', async (req, res) => {
+    const allListings = await listing.find();
+    res.render("listings/index.ejs", { allListings });
+});
 
 const ordersFilePath = path.join(__dirname, 'payments', 'orders.json');
 
@@ -162,10 +167,6 @@ app.post('/verify-payment', (req, res) => {
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'Something went wrong' } = err;
     res.render('listings/error', { message });
-});
-
-app.get('/listing/*', (req, res, next) => {
-    next(new ExpressError(404, 'Listing page not found'));
 });
 
 app.listen(port, () => {
