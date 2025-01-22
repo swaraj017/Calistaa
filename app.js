@@ -29,7 +29,7 @@ const razorpay = new Razorpay({
     key_secret: process.env.key_secret,
 });
 
-const dburl = process.env.MONGO_STRING + '?ssl=true';
+const dburl = "mongodb+srv://swarajgaikwad:swaraj1991@cluster0.ggxns9s.mongodb.net/wanderlust?retryWrites=true&w=majority&appName=Cluster0" + '?ssl=true';
 async function main() {
     await mongoose.connect(dburl);
 }

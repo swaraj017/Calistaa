@@ -1,11 +1,36 @@
 <% layout("/layuots/boilerplate.ejs") %>
 
  
- 
+ <style>
+ .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+     
+}
+
+.newlisitngbutton { 
+    width: 50%;
+    padding: 15px;
+    margin: 10px 0;
+    background-image: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-position 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+    
+ </style>
 
 <body>
   <div class="container">
-    <h3>Create a New Listing</h3>
+    <h3 style="color: antiquewhite;">Create a New Listing</h3>
     <form method="POST" action="/listing" novalidate class="listing-form needs-validation" enctype="multipart/form-data">
 
       <div class="mb-2">  
@@ -55,8 +80,9 @@
           Please provide a location.
         </div>
       </div>
-
-      <button class="btn btn-primary" type="submit">Add Listing</button>
+      <div class="button-container">
+      <button class="newlisitngbutton" type="submit">Add Listing</button>
+      </div>
     </form>
   </div>
 </body>
