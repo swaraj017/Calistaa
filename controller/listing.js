@@ -9,7 +9,8 @@ const ExpressError = require("../utils/ExpressError");
 const User = require("../models/user.js");
 const Review = require("../models/review.js");
 const { isLoggedIn } = require("../middleware.js");
-
+const multer = require('multer');
+const { storage } = require("../cloudConfig.js");
 module.exports.index = async (req, res) => {
     const allListings = await listing.find();
     res.render("listings/index.ejs", { allListings });
