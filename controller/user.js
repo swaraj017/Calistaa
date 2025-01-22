@@ -32,29 +32,17 @@ module.exports.postsignup = async (req, res) => {
 
 
 module.exports.postlogin=async (req, res) => {
-    // const { username } = req.body;
-    // const existingUser = await User.findOne({ username });
-
-    // if (existingUser) {
-    //     req.session.userId = existingUser._id;
-    //     console.log("Logged in User Id == >>", req.session.userId);
-
-    //     const allListings = await listing.find();
-    //     res.render("listings/index.ejs", { allListings });
-         
-    // } else {
-    //     return res.render("user/loggin.ejs", { message: "Username not found." });
-    // }
-    const { username, password } = req.body;
+   
+    const { username } = req.body;
 const existingUser = await User.findOne({ username });
 
 if (existingUser) {
-    req.session.userId = existingUser._id;
-    console.log("Logged in User Id == >>", req.session.userId);
+    // req.session.userId = existingUser._id;
+    // console.log("Logged in User Id == >>", req.session.userId);
     const allListings = await listing.find();
     res.render("listings/index.ejs", { allListings });
 } else {
-    return res.render("user/loggin.ejs", { message: "Username or password not found." });
+    return res.render("user/loggin.ejs", { message: "Username or not found." });
 }
 
 }
