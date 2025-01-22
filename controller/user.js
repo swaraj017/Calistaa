@@ -37,8 +37,8 @@ module.exports.postlogin=async (req, res) => {
 const existingUser = await User.findOne({ username });
 
 if (existingUser) {
-    // req.session.userId = existingUser._id;
-    // console.log("Logged in User Id == >>", req.session.userId);
+    req.session.userId = existingUser._id;
+    console.log("Logged in User Id == >>", req.session.userId);
     const allListings = await listing.find();
     res.render("listings/index.ejs", { allListings });
 } else {
