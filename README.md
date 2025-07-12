@@ -31,6 +31,5 @@ Live Demo: [https://calistaa.onrender.com](https://calistaa.onrender.com)
 - MongoDB (Mongoose)
 - JSON Web Tokens (JWT)
 - Multer (for image upload)
-
-## 📁 Project Structure
+ 
 
