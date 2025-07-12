@@ -20,7 +20,7 @@ Live Demo: [https://calistaa.onrender.com](https://calistaa.onrender.com)
 ## 🚀 Tech Stack
 
 ### 🔧 Frontend
-- Ejs
+- Dynamic Ejs
 - CSS
 - Axios
 
