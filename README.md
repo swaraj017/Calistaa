@@ -20,10 +20,9 @@ Live Demo: [https://calistaa.onrender.com](https://calistaa.onrender.com)
 ## 🚀 Tech Stack
 
 ### 🔧 Frontend
-- React.js
-- Tailwind CSS
+- Ejs
+- CSS
 - Axios
-- React Router DOM
 
 ### 🖥 Backend
 - Node.js
@@ -31,5 +30,6 @@ Live Demo: [https://calistaa.onrender.com](https://calistaa.onrender.com)
 - MongoDB (Mongoose)
 - JSON Web Tokens (JWT)
 - Multer (for image upload)
+- Cloudnairy Cloud
  
 
