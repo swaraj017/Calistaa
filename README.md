@@ -5,7 +5,7 @@ Live Demo: [https://calistaa.onrender.com](https://calistaa.onrender.com)
 
 ## 📌 Overview
 
-**Calistaa** is a full-stack **Tour and Travel Booking Platform** that allows users to explore, book, and manage travel packages. It includes features like user authentication, admin package management, real-time reviews, and a responsive UI optimized for all devices.
+**Calistaa** is a full-stack **Tour and Travel Booking Platform** that allows users to explore, book, and manage travel packages. It includes features like user authentication, admin package management, real-time reviews.
 
 ## 🛠️ Features
 
@@ -15,7 +15,7 @@ Live Demo: [https://calistaa.onrender.com](https://calistaa.onrender.com)
 - ⭐ **User Reviews & Ratings**
 - 🔍 **Search & Filter Packages**
 - 🧾 **Order History Management**
-- 📱 **Responsive Design** (Mobile-friendly)
+ 
 
 ## 🚀 Tech Stack
 
